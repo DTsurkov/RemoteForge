@@ -32,9 +32,7 @@ public interface IRemoteForge
     /// </summary>
     /// <param name="info">The string containing the connection info.</param>
     /// <returns>The IRemoteForge instance for the string provided.</returns>
-
     protected internal static abstract IRemoteForge Create(string info);
-    protected internal static abstract IRemoteForge Create(string info, string subsystem);
 
     /// <summary>
     /// Gets a string that describes the transport. It is used to identify the
@@ -48,7 +46,4 @@ public interface IRemoteForge
     /// </summary>
     /// <returns>The RemoteTransport object.</returns>
     RemoteTransport CreateTransport();
-
-    RemoteTransport CreateTransport(string subsystem);
-
 }

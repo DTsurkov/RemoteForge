@@ -82,14 +82,14 @@ public sealed class RemoteForgeRegistration
 
             registrations.Add(registration);
 
-            MethodInfo registerMethod2 = typeof(RemoteForgeRegistration).GetMethod(
-                nameof(RegisterForgeType2),
-                BindingFlags.NonPublic | BindingFlags.Static)!;
-            RemoteForgeRegistration registration2 = (RemoteForgeRegistration)registerMethod
-                .MakeGenericMethod(new[] { t })
-                .Invoke(null, new object[] { force })!;
+            //MethodInfo registerMethod2 = typeof(RemoteForgeRegistration).GetMethod(
+            //    nameof(RegisterForgeType2),
+            //    BindingFlags.NonPublic | BindingFlags.Static)!;
+            //RemoteForgeRegistration registration2 = (RemoteForgeRegistration)registerMethod
+            //    .MakeGenericMethod(new[] { t })
+            //    .Invoke(null, new object[] { force })!;
 
-            registrations.Add(registration2);
+            //registrations.Add(registration2);
         }
 
         return registrations.ToArray();
@@ -102,12 +102,12 @@ public sealed class RemoteForgeRegistration
             T.ForgeDescription,
             force: force);
 
-    private static RemoteForgeRegistration RegisterForgeType2<T>(bool force, string subsystem) where T : IRemoteForge
-        => Register(
-            T.ForgeName,
-            (u) => new RemoteForgeConnectionInfo(T.Create(u, subsystem)),
-            T.ForgeDescription,
-            force: force);
+    //private static RemoteForgeRegistration RegisterForgeType2<T>(bool force, string subsystem) where T : IRemoteForge
+    //    => Register(
+    //        T.ForgeName,
+    //        (u) => new RemoteForgeConnectionInfo(T.Create(u, subsystem)),
+    //        T.ForgeDescription,
+    //        force: force);
 
     public static RemoteForgeRegistration Register(
         string name,

@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Reflection.PortableExecutable;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -57,6 +58,7 @@ public class ProcessTransport : RemoteTransport
                 Proc.StartInfo.Environment.Add(kvp.Key, kvp.Value);
             }
         }
+        //Console.WriteLine($"CreateTransport with subsystem '{subsystem}'");
     }
 
     protected override Task Open(CancellationToken cancellationToken)
