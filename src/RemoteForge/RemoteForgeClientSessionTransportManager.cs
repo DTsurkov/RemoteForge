@@ -92,7 +92,7 @@ internal sealed class RemoteForgeClientSessionTransportManager : ClientSessionTr
 
         _transportWorker = Task.Run(async () =>
         {
-            using RemoteTransport transport = _transportFactory.CreateTransport();
+            using RemoteTransport transport = _transportFactory.CreateTransport(subsystem: _transportFactory.Subsystem);
             try
             {
                 await transport.Run(

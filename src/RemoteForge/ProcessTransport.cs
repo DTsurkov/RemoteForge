@@ -16,7 +16,8 @@ public class ProcessTransport : RemoteTransport
     public ProcessTransport(
         string executable,
         IEnumerable<string>? arguments,
-        Dictionary<string, string>? environment)
+        Dictionary<string, string>? environment,
+        string? subsystem = null)
     {
         Proc = new()
         {
