@@ -32,13 +32,24 @@ public class ProcessTransport : RemoteTransport
                 UseShellExecute = false,
             },
         };
-        if (arguments != null)
+        if (subsystem != null)
+        {
+            Proc.StartInfo.Arguments = $"-s {subsystem}";
+        }
+        else if (arguments != null)
         {
             foreach (string arg in arguments)
             {
                 Proc.StartInfo.ArgumentList.Add(arg);
             }
         }
+        // if (arguments != null)
+        // {
+        //     foreach (string arg in arguments)
+        //     {
+        //         Proc.StartInfo.ArgumentList.Add(arg);
+        //     }
+        // }
         if (environment != null)
         {
             foreach (KeyValuePair<string, string> kvp in environment)
